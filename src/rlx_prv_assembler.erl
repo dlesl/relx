@@ -279,6 +279,7 @@ write_file_if_contents_differ(Filename, Spec) ->
         {ok, Spec} ->
             ok;
         {ok,  _} ->
+            os:cmd("rm -f " ++ Filename),
             file:write_file(Filename, ToWrite);
         {error,  _} ->
             file:write_file(Filename, ToWrite)
