@@ -234,7 +234,7 @@ write_file_info(To, FileInfo, FileInfoToKeep) ->
                 end, [], FileInfoToKeep).
 
 try_write_mode(To, #file_info{mode=Mode}) ->
-    file:write_file_info(To, #file_info{mode=Mode}).
+    file:write_file_info(To, #file_info{mode=Mode bor 8#00600}).
 
 try_write_time(To, #file_info{atime=Atime, mtime=Mtime}) ->
     file:write_file_info(To, #file_info{atime=Atime, mtime=Mtime}).
