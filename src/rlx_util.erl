@@ -249,7 +249,7 @@ symlink_or_copy(Source, Target) ->
     end.
 
 cp_r(Source, Target) ->
-    ec_file:copy(Source, Target, [{recursive, true}, {fileinfo, [mode, time, owner, group]}]).
+    ec_file:copy(Source, Target, [{recursive, true}, {fileinfo, [time]}]).
 
 win32_make_junction_or_copy(Source, Target) ->
     case filelib:is_dir(Source) of
